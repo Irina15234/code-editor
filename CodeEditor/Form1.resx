@@ -121,6 +121,35 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EgAACxIB0t1+/AAAAWlJREFUOE99krtKA1EQho+Xk00taOHjiHbiBTujjUQklZcXEN/AShBbm2CMpZpY
+        h1UwahkFES8QCWF3c6v9/pA9JBEd+MKZc2YyM/+sOS/4p7D2XavbMAxtFEW23W7bTqdjG42GDYLANpvN
+        7t3bZzWRu/Yz+aJ/ZDjsZS9LZZiFEfOH8TYGK4rNF2/TpvL64eGs6gJSMNGLdcbdFBzCPczX6kHSqA2c
+        UdiFChyAq8xZlZT0BGm9keMZzdILmIYTcG2D/nAJHmATJhWLFp7R0HJkPIxDf9tboKQFcF0goKcflygj
+        QFV2QG0/gyoNiNZqtTyVHU5Ui6r0AkpU5YFEuvS64vT8WIhlUKuqJMF0ngOXPCxOLLlmWlQgqG3NrDW4
+        VfFReOpX64glf4SBmTj3r2pfb11x3r+qCZxfkvcbd/GqVHkmjKKkPrkMzi/Jh403rWodyhc3dylzdlXK
+        4mz8lxQbMRppO1fwj38ARRdr6QusXa0AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EgAACxIB0t1+/AAAAJZJREFUOE/Fkr0JgDAUhMWhrC1cwxHcwMwTH2LnzwBRWzsncBDvIsEQAoqNxQch
+        d194CUlkWgXsPs241EWRp4TrMAdCkYsWhcqhB5M5Ufcm8zN0NzpW5IYrPoF+95MIqfbv9AT6JVBJLHzD
+        d9GOiiePhTGacb5G/fw4/4iA34gbFhxUuiLv5GfgAFaMfXJ1i4sKc5lWOQFprDsJ3vGyPAAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA4AAAAECAYAAAC+0w63AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        TgAAAE4Bsc0fMwAAAGBJREFUGFdjWLv7hNyqHcfnrdpxbD8QH4Dj7cf2rdx+bBcWvB6I/RiAmtqAjN9A
+        /J8EfB+ksQfI+IsmQQg/ZVi3+4QK0GmrVm4/emLltqOnkPBJoIJjQHwUDe9euf1YFACSQ6Xt9XFgNAAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAAAAAAAEAIADpSAAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAEAAAABAAgGAAAAXHKoZgAAAAFv
