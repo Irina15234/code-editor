@@ -16,11 +16,12 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace CodeEditor
 {
-    public partial class Form1 : Form
+    public partial class CodeEditorForm : Form
     {
-        public Form1()
+        public CodeEditorForm()
         {
             InitializeComponent();
+            this.MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
 
             mainMenu.Renderer = new MenuRenderer();
         }
@@ -36,12 +37,12 @@ namespace CodeEditor
             Console.WriteLine(this.codeTextBox.Text);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void closeButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void fullscreenButton_Click(object sender, EventArgs e)
         {
             bool isFullscreen = this.WindowState == FormWindowState.Maximized;
             if (isFullscreen)
@@ -53,9 +54,14 @@ namespace CodeEditor
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void minimizeButton_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

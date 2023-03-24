@@ -76,4 +76,5 @@ namespace CodeEditor.styles
             get { return ColorTranslator.FromHtml(colors.panelHoverBG); }
         }
     }
+
 }
