@@ -18,6 +18,10 @@ namespace CodeEditor
 {
     public partial class CodeEditorForm : Form
     {
+        public string currentSyntax = null;
+        private OpenFileDialog openFileDialog = new OpenFileDialog();
+        private SaveFileDialog saveFileDialog = new SaveFileDialog();
+
         public CodeEditorForm()
         {
             InitializeComponent();
@@ -30,7 +34,6 @@ namespace CodeEditor
         {
             public MenuRenderer() : base(new CustomMenuColorTable()) { }
         }
-
 
         private void codeTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -62,6 +65,31 @@ namespace CodeEditor
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void jsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.currentSyntax = "js";
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filename = openFileDialog.FileName;
+                string fileText = System.IO.File.ReadAllText(filename);
+                codeTextBox.Text = fileText;
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog.DefaultExt = "*." + this.currentSyntax;
+            saveFileDialog.Filter = "Files|*." + this.currentSyntax;
+            if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+            string filename = saveFileDialog.FileName;
+            System.IO.File.WriteAllText(filename, codeTextBox.Text);
         }
     }
 }
