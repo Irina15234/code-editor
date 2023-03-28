@@ -1,8 +1,10 @@
-﻿using CodeEditor.styles;
+﻿using CodeEditor.Properties;
+using CodeEditor.styles;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
@@ -13,12 +15,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using SystemColors = CodeEditor.styles.SystemColors;
 
 namespace CodeEditor
 {
     public partial class CodeEditorForm : Form
     {
-        public string currentSyntax = null;
+        public SystemColors systemColors = new SystemColors();
+        private string currentSyntax = "No";
         private OpenFileDialog openFileDialog = new OpenFileDialog();
         private SaveFileDialog saveFileDialog = new SaveFileDialog();
 
@@ -28,6 +32,24 @@ namespace CodeEditor
             this.MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
 
             mainMenu.Renderer = new MenuRenderer();
+
+            string[] languages = { "No", "JS" };
+
+            foreach (var item in languages)
+            {
+                var dropDownItem = new System.Windows.Forms.ToolStripMenuItem()
+                {
+                    Name = "dropDownItem" + item,
+                    Text = item,
+                    ForeColor = systemColors.getRgbColor(systemColors.baseFont),
+                    BackColor = systemColors.getRgbColor(systemColors.panelBG),
+                    Image = item == currentSyntax ? Resources.point : null,
+                    ImageScaling = ToolStripItemImageScaling.None
+
+                };
+                dropDownItem.Click += langToolStripMenuItem_Click;
+                langToolStripMenuItem.DropDownItems.Add(dropDownItem);
+            }
         }
 
         private class MenuRenderer : ToolStripProfessionalRenderer
@@ -67,9 +89,20 @@ namespace CodeEditor
             this.Close();
         }
 
-        private void jsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void langToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.currentSyntax = "js";
+            for (var i = 0; i < langToolStripMenuItem.DropDownItems.Count; i++)
+            {
+                if (langToolStripMenuItem.DropDownItems[i].Text == this.currentSyntax)
+                {
+                    Console.WriteLine(2);
+                    langToolStripMenuItem.DropDownItems[i].Image = null;
+                }
+            }
+
+           
+            (sender as ToolStripMenuItem).Image = Resources.point;
+            this.currentSyntax = sender.ToString();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -84,8 +117,9 @@ namespace CodeEditor
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveFileDialog.DefaultExt = "*." + this.currentSyntax;
-            saveFileDialog.Filter = "Files|*." + this.currentSyntax;
+            var lang = this.currentSyntax == "No" ? null : this.currentSyntax;
+            saveFileDialog.DefaultExt = "*." + lang;
+            saveFileDialog.Filter = "Files|*." + lang;
             if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
             string filename = saveFileDialog.FileName;

@@ -15,6 +15,16 @@ namespace CodeEditor.styles
         public string panelHoverBG = "#636567";
 
         public string baseFont = "#a9b7c6";
+        
+        public string orange = "#cb712f";
+        public string yellow = "#ffb450";
+        public string green = "#6a8759";
+        public string purple = "#9876aa";
+
+        public Color getRgbColor(string color)
+        {
+            return ColorTranslator.FromHtml(color);
+        }
     }
 
     public class CustomMenuColorTable : ProfessionalColorTable

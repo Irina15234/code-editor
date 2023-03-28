@@ -121,10 +121,19 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="openToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EgAACxIB0t1+/AAAAJZJREFUOE/Fkr0JgDAUhMWhrC1cwxHcwMwTH2LnzwBRWzsncBDvIsEQAoqNxQch
+        d194CUlkWgXsPs241EWRp4TrMAdCkYsWhcqhB5M5Ufcm8zN0NzpW5IYrPoF+95MIqfbv9AT6JVBJLHzD
+        d9GOiiePhTGacb5G/fw4/4iA34gbFhxUuiLv5GfgAFaMfXJ1i4sKc5lWOQFprDsJ3vGyPAAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
   <data name="closeButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAWlJREFUOE99krtKA1EQho+Xk00taOHjiHbiBTujjUQklZcXEN/AShBbm2CMpZpY
+        DwAACw8BkvkDpQAAAWlJREFUOE99krtKA1EQho+Xk00taOHjiHbiBTujjUQklZcXEN/AShBbm2CMpZpY
         h1UwahkFES8QCWF3c6v9/pA9JBEd+MKZc2YyM/+sOS/4p7D2XavbMAxtFEW23W7bTqdjG42GDYLANpvN
         7t3bZzWRu/Yz+aJ/ZDjsZS9LZZiFEfOH8TYGK4rNF2/TpvL64eGs6gJSMNGLdcbdFBzCPczX6kHSqA2c
         UdiFChyAq8xZlZT0BGm9keMZzdILmIYTcG2D/nAJHmATJhWLFp7R0HJkPIxDf9tboKQFcF0goKcflygj
@@ -136,7 +145,7 @@
   <data name="fullscreenButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAAJZJREFUOE/Fkr0JgDAUhMWhrC1cwxHcwMwTH2LnzwBRWzsncBDvIsEQAoqNxQch
+        DwAACw8BkvkDpQAAAJZJREFUOE/Fkr0JgDAUhMWhrC1cwxHcwMwTH2LnzwBRWzsncBDvIsEQAoqNxQch
         d194CUlkWgXsPs241EWRp4TrMAdCkYsWhcqhB5M5Ufcm8zN0NzpW5IYrPoF+95MIqfbv9AT6JVBJLHzD
         d9GOiiePhTGacb5G/fw4/4iA34gbFhxUuiLv5GfgAFaMfXJ1i4sKc5lWOQFprDsJ3vGyPAAAAABJRU5E
         rkJggg==
