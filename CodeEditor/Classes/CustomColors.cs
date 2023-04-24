@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CodeEditor.styles
+namespace CodeEditor.Classes
 {
     public class SystemColors
     {
