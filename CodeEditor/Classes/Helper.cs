@@ -24,15 +24,15 @@ namespace CodeEditor.Classes
                 case "JS":
                     keyWords = jsFormatting.KeyWords;
                     break;
+                default:
+                    keyWords = new Dictionary<string, Color>();
+                    break;
             }
 
             int selectionStart = textBox.SelectionStart;
-            Console.WriteLine(currentSyntax);
-            Console.WriteLine(keyWords);
             foreach (KeyValuePair<string, Color> keyValue in keyWords)
             {
                 MatchCollection allKeyWords = Regex.Matches(textBox.Text, keyValue.Key);
-                Console.WriteLine(allKeyWords);
                 foreach (Match findKeyWord in allKeyWords)
                 {
                     textBox.SelectionStart = findKeyWord.Index;
@@ -44,6 +44,17 @@ namespace CodeEditor.Classes
             textBox.SelectionStart = selectionStart;
             textBox.SelectionLength = 0;
             textBox.SelectionColor = textBox.ForeColor;
+        }
+
+        public void resetHighlightingKeywords(RichTextBox textBox)
+        {
+            int selectionStart = textBox.SelectionStart;
+
+            textBox.SelectionStart = 0;
+            textBox.SelectionLength = textBox.Text.Length;
+            textBox.SelectionColor = textBox.ForeColor;
+
+            textBox.SelectionStart = selectionStart;
         }
     }
 }

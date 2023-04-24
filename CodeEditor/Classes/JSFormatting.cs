@@ -25,7 +25,6 @@ namespace CodeEditor.Classes
             "else",
             "break",
             "continue",
-            "default",
             "delete",
             "try",
             "catch",
@@ -72,8 +71,18 @@ namespace CodeEditor.Classes
 
             foreach (var keyWord in FunctionsKeyWordsList)
             {
-                KeyWords.Add(keyWord, systemColors.getRgbColor(systemColors.yellow));
+                KeyWords.Add('.'+keyWord, systemColors.getRgbColor(systemColors.yellow));
             }
+
+            foreach (var keyWord in KeyWordsList)
+            {
+                KeyWords.Add(keyWord, systemColors.getRgbColor(systemColors.orange));
+            }
+        }
+
+        public void formatting()
+        {
+
         }
     }
 }

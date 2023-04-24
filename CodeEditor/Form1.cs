@@ -48,6 +48,8 @@ namespace CodeEditor
         private void toolStripMenuClickCallback(string newSyntax)
         {
             this.currentSyntax = newSyntax;
+            helper.resetHighlightingKeywords(codeTextBox);
+            helper.highlightingKeywords(newSyntax, codeTextBox);
         }
 
         private void codeTextBox_TextChanged(object sender, EventArgs e)
@@ -101,6 +103,11 @@ namespace CodeEditor
                 return;
             string filename = saveFileDialog.FileName;
             System.IO.File.WriteAllText(filename, codeTextBox.Text);
+        }
+
+        private void formatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
