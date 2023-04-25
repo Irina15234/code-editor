@@ -13,7 +13,7 @@ namespace CodeEditor.Classes
 {
     public partial class Helper
     {
-        public string[] languages = { "No", "JS" };
+        public readonly string[] languages = { "No", "JS" };
         public Dictionary<string, Color> keyWords = new Dictionary<string, Color>();
         public JSFormatting jsFormatting = new JSFormatting();
 

@@ -17,6 +17,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 using SystemColors = CodeEditor.Classes.SystemColors;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace CodeEditor
 {
@@ -91,6 +92,11 @@ namespace CodeEditor
                 string filename = openFileDialog.FileName;
                 string fileText = System.IO.File.ReadAllText(filename);
                 codeTextBox.Text = fileText;
+
+                string extension = Path.GetExtension(filename).Replace(".", string.Empty).ToUpper();
+                this.currentSyntax = helper.languages.Contains(extension) ? extension : "No";
+                helper.highlightingKeywords(this.currentSyntax, codeTextBox);
+                helper.updateLangToolStripMenu(ref this.currentSyntax, this.langToolStripMenuItem, (newSyntax) => toolStripMenuClickCallback(newSyntax));
             }
         }
 

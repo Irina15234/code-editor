@@ -34,6 +34,12 @@ namespace CodeEditor.Classes
             }
         }
 
+        public void updateLangToolStripMenu(ref string currentSyntax, ToolStripMenuItem langToolStripMenuItem, Action<string> callback)
+        {
+            langToolStripMenuItem.DropDownItems.Clear();
+            this.createLangToolStripMenu(ref currentSyntax, langToolStripMenuItem, callback);
+        }
+
         private static void langToolStripMenuItem_Click(object sender, Action<string> callback, ToolStripMenuItem langToolStripMenuItem)
         {
             for (var i = 0; i < langToolStripMenuItem.DropDownItems.Count; i++)
