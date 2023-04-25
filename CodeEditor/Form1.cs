@@ -34,11 +34,36 @@ namespace CodeEditor
         public CodeEditorForm()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.ResizeRedraw, true);
             this.MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
 
             mainMenu.Renderer = new MenuRenderer();
 
             helper.createLangToolStripMenu(ref this.currentSyntax, this.langToolStripMenuItem, (newSyntax) => toolStripMenuClickCallback(newSyntax));
+        }
+
+        private const int cGrip = 16;      // Grip size
+        private const int cCaption = 32;   // Caption bar height;
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x84)
+            {  // Trap WM_NCHITTEST
+                Point pos = new Point(m.LParam.ToInt32());
+                pos = this.PointToClient(pos);
+                if (pos.Y < cCaption)
+                {
+                    m.Result = (IntPtr)2;  // HTCAPTION
+                    return;
+                }
+                if (pos.X >= this.ClientSize.Width - cGrip && pos.Y >= this.ClientSize.Height - cGrip)
+                {
+                    m.Result = (IntPtr)17; // HTBOTTOMRIGHT
+                    return;
+                }
+            }
+            base.WndProc(ref m);
         }
 
         private class MenuRenderer : ToolStripProfessionalRenderer
