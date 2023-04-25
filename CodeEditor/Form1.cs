@@ -31,6 +31,9 @@ namespace CodeEditor
         private OpenFileDialog openFileDialog = new OpenFileDialog();
         private SaveFileDialog saveFileDialog = new SaveFileDialog();
 
+        private const int cGrip = 16;      // Grip size
+        private const int cCaption = 32;   // Caption bar height;
+
         public CodeEditorForm()
         {
             InitializeComponent();
@@ -42,9 +45,6 @@ namespace CodeEditor
 
             helper.createLangToolStripMenu(ref this.currentSyntax, this.langToolStripMenuItem, (newSyntax) => toolStripMenuClickCallback(newSyntax));
         }
-
-        private const int cGrip = 16;      // Grip size
-        private const int cCaption = 32;   // Caption bar height;
 
         protected override void WndProc(ref Message m)
         {
