@@ -20,6 +20,7 @@ namespace CodeEditor.Classes
         public string yellow = "#ffb450";
         public string green = "#6a8759";
         public string purple = "#9876aa";
+        public string red = "#e81123";
 
         public Color getRgbColor(string color)
         {
