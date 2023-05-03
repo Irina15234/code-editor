@@ -41,7 +41,10 @@
             this.closeButton = new System.Windows.Forms.Button();
             this.fullscreenButton = new System.Windows.Forms.Button();
             this.minimizeButton = new System.Windows.Forms.Button();
+            this.keyWordsPanel = new System.Windows.Forms.Panel();
+            this.wordsListBox = new System.Windows.Forms.ListBox();
             this.mainMenu.SuspendLayout();
+            this.keyWordsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenu
@@ -205,12 +208,39 @@
             this.minimizeButton.UseVisualStyleBackColor = false;
             this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
             // 
+            // keyWordsPanel
+            // 
+            this.keyWordsPanel.AutoSize = true;
+            this.keyWordsPanel.Controls.Add(this.wordsListBox);
+            this.keyWordsPanel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.keyWordsPanel.Location = new System.Drawing.Point(282, 227);
+            this.keyWordsPanel.Name = "keyWordsPanel";
+            this.keyWordsPanel.Size = new System.Drawing.Size(180, 166);
+            this.keyWordsPanel.TabIndex = 5;
+            this.keyWordsPanel.Visible = false;
+            // 
+            // wordsListBox
+            // 
+            this.wordsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.wordsListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.wordsListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.wordsListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(198)))));
+            this.wordsListBox.FormattingEnabled = true;
+            this.wordsListBox.ItemHeight = 16;
+            this.wordsListBox.Location = new System.Drawing.Point(0, 3);
+            this.wordsListBox.Name = "wordsListBox";
+            this.wordsListBox.Size = new System.Drawing.Size(177, 160);
+            this.wordsListBox.TabIndex = 2;
+            // 
             // CodeEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.ClientSize = new System.Drawing.Size(873, 562);
+            this.Controls.Add(this.keyWordsPanel);
             this.Controls.Add(this.codeTextBox);
             this.Controls.Add(this.minimizeButton);
             this.Controls.Add(this.fullscreenButton);
@@ -223,7 +253,9 @@
             this.Text = "Editor";
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
+            this.keyWordsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -241,6 +273,8 @@
         private System.Windows.Forms.Button minimizeButton;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formatToolStripMenuItem;
+        private System.Windows.Forms.Panel keyWordsPanel;
+        private System.Windows.Forms.ListBox wordsListBox;
     }
 }
 

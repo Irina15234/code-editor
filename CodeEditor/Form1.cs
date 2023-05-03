@@ -27,6 +27,7 @@ namespace CodeEditor
         public Helper helper = new Helper();
 
         private string currentSyntax = "No";
+        string prevText = "";
 
         private OpenFileDialog openFileDialog = new OpenFileDialog();
         private SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -76,11 +77,15 @@ namespace CodeEditor
             this.currentSyntax = newSyntax;
             helper.resetHighlightingKeywords(codeTextBox);
             helper.highlightingKeywords(newSyntax, codeTextBox);
+            helper.resetKeyWordsPanel(wordsListBox, keyWordsPanel);
         }
 
         private void codeTextBox_TextChanged(object sender, EventArgs e)
         {
+            helper.resetHighlightingKeywords(codeTextBox);
             helper.highlightingKeywords(currentSyntax, codeTextBox);
+            helper.codeTextBoxHandler(codeTextBox, wordsListBox, keyWordsPanel, prevText);
+            prevText = codeTextBox.Text;
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -117,6 +122,7 @@ namespace CodeEditor
                 string filename = openFileDialog.FileName;
                 string fileText = System.IO.File.ReadAllText(filename);
                 codeTextBox.Text = fileText;
+                prevText = fileText;
 
                 string extension = Path.GetExtension(filename).Replace(".", string.Empty).ToUpper();
                 this.currentSyntax = helper.languages.Contains(extension) ? extension : "No";
