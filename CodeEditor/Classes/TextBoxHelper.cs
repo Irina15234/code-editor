@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CodeEditor.Classes
 {
@@ -105,6 +107,10 @@ namespace CodeEditor.Classes
             int startIndex = prevTextLines[rowIndex].Length > textBox.Lines[rowIndex].Length ? charIndex - 1 : charIndex;
             for (int i = startIndex; i > -1; i--)
             {
+                if (!Regex.IsMatch(textBox.Lines[rowIndex][i].ToString(), "^[a-zA-Z ]"))
+                {
+                    return new ChangedText();
+                }
                 if (textBox.Lines[rowIndex][i] != ' ')
                 {
                     newWord = textBox.Lines[rowIndex][i] + newWord;
