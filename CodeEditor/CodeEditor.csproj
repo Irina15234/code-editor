@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ChangedText.cs" />
+    <Compile Include="Classes\TextBoxHelper.cs" />
     <Compile Include="Classes\Helper.cs" />
     <Compile Include="Classes\FormHelper.cs" />
     <Compile Include="Classes\JSFormatting.cs" />
