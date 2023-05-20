@@ -210,12 +210,15 @@
             // 
             // keyWordsPanel
             // 
+            this.keyWordsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.keyWordsPanel.AutoSize = true;
+            this.keyWordsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.keyWordsPanel.Controls.Add(this.wordsListBox);
             this.keyWordsPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.keyWordsPanel.Location = new System.Drawing.Point(282, 227);
+            this.keyWordsPanel.Location = new System.Drawing.Point(732, 34);
             this.keyWordsPanel.Name = "keyWordsPanel";
-            this.keyWordsPanel.Size = new System.Drawing.Size(180, 166);
+            this.keyWordsPanel.Size = new System.Drawing.Size(141, 516);
             this.keyWordsPanel.TabIndex = 5;
             this.keyWordsPanel.Visible = false;
             // 
@@ -223,13 +226,13 @@
             // 
             this.wordsListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.wordsListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.wordsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wordsListBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.wordsListBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(183)))), ((int)(((byte)(198)))));
             this.wordsListBox.FormattingEnabled = true;
             this.wordsListBox.ItemHeight = 16;
             this.wordsListBox.Location = new System.Drawing.Point(0, 0);
             this.wordsListBox.Name = "wordsListBox";
-            this.wordsListBox.Size = new System.Drawing.Size(180, 166);
+            this.wordsListBox.Size = new System.Drawing.Size(139, 496);
             this.wordsListBox.TabIndex = 2;
             // 
             // CodeEditorForm

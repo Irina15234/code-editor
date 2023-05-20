@@ -13,6 +13,9 @@ namespace CodeEditor.Classes
             if (keyWords.Count > 0)
             {
                 ChangedText changedText = getNewWord(prevText, textBox);
+                Console.WriteLine(changedText.rowIndex);
+                Console.WriteLine(changedText.charIndex);
+                Console.WriteLine(changedText.newWord);
                 if (changedText.newWord.Length > 0)
                 {
                     defineKeyWordsPanel(keyWordsPanel, wordsListBox, changedText.newWord);
@@ -30,12 +33,14 @@ namespace CodeEditor.Classes
         private static void wordsListBox_Click(object sender, ChangedText changedText, RichTextBox textBox)
         {
             string currentWord = (sender as ListBox).SelectedItem.ToString();
-
+            Console.WriteLine(changedText.rowIndex);
+            Console.WriteLine(changedText.charIndex);
+            Console.WriteLine(changedText.newWord);
             string newRow = textBox.Lines[changedText.rowIndex].ToString();
-            int startReolaceIndex = changedText.charIndex + 1 - changedText.newWord.Length;
+            int startReplaceIndex = changedText.charIndex + 1 - changedText.newWord.Length;
 
             var lines = textBox.Lines;
-            lines[changedText.rowIndex] = newRow.Remove(startReolaceIndex, changedText.newWord.Length).Insert(startReolaceIndex, currentWord);
+            lines[changedText.rowIndex] = newRow.Remove(startReplaceIndex, changedText.newWord.Length).Insert(startReplaceIndex, currentWord);
             textBox.Lines = lines;
         }
 
@@ -59,17 +64,25 @@ namespace CodeEditor.Classes
 
         private int getChangedCharIndex(string[] prevTextLines, RichTextBox textBox, int rowIndex)
         {
+            string row = textBox.Lines[rowIndex];
+
+            if (row.Length == 0)
+            {
+                return -1;
+            }
+
             if (prevTextLines.Length - 1 < rowIndex)
             {
                 return Math.Abs(prevTextLines.Length - textBox.Lines.Length) > 1 ? -1 : 0;
             }
+
             string prevRow = prevTextLines[rowIndex];
-            string row = textBox.Lines[rowIndex];
 
             if (Math.Abs(prevRow.Length - row.Length) > 1)
             {
                 return -1;
             }
+
 
             for (int i = 0; i < Math.Min(prevRow.Length, row.Length); i++)
             {
@@ -100,16 +113,16 @@ namespace CodeEditor.Classes
             }
             if (charIndex == 0)
             {
-                return new ChangedText(textBox.Text[charIndex].ToString(), rowIndex, charIndex);
+                return new ChangedText(textBox.Lines[rowIndex][charIndex].ToString(), rowIndex, charIndex);
             }
 
             string newWord = "";
             int startIndex = prevTextLines[rowIndex].Length > textBox.Lines[rowIndex].Length ? charIndex - 1 : charIndex;
             for (int i = startIndex; i > -1; i--)
             {
-                if (!Regex.IsMatch(textBox.Lines[rowIndex][i].ToString(), "^[a-zA-Z ]"))
+                if (!Regex.IsMatch(textBox.Lines[rowIndex][i].ToString(), "^[a-zA-Z]"))
                 {
-                    return new ChangedText();
+                    return new ChangedText(newWord, rowIndex, charIndex);
                 }
                 if (textBox.Lines[rowIndex][i] != ' ')
                 {
